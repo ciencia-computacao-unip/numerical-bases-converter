@@ -1,4 +1,4 @@
-function convertCharToCode(char){
+module.exports = function (char){
   var digitos = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/";
   var numero = digitos.indexOf(char);
   if(numero<0){
