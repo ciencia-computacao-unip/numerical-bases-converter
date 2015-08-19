@@ -11,6 +11,10 @@ function convertToDecimal(string,base){
   for(var x=arrayChar.length-1;x>=0;x--){  //contagem regressiva para ser elevada
     //arrayChar.length é usado para contar a quantidade de itens no array
     var charDecimal = convertCharToCode(arrayChar[(arrayChar.length-1)-x]); //usa a função para converter possiveis caracteres para um numero
+    if(charDecimal>=base){
+      console.log("Erro: seu número não está nessa base numérica.");
+      process.exit(1);
+    }
     var preNumero = charDecimal * Math.pow(base,x); //cada preNumero é o resultado da formula feita para converter o numero. Math.pow() é usada para elevar um número de forma mais fácil
     numero += preNumero; //o preNumero é somado ao numero final, dando o resultado.
     //console.log(charDecimal+"*"+base+"^"+x+" = "+preNumero); //em caso de debug, retire o comentário dessa linha, para saber como a formula funciona
@@ -18,3 +22,5 @@ function convertToDecimal(string,base){
 
   return numero; //retorna o numero final, convertido na base decimal
 }
+
+console.log(convertToDecimal('10',2));
