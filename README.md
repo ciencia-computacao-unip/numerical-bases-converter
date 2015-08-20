@@ -1,6 +1,10 @@
 # numerical-bases-converter
 Conversor de bases numéricas
 
+###Fontes
+https://pt.wikipedia.org/wiki/Convers%C3%A3o_de_base_num%C3%A9rica
+http://producao.virtual.ufpb.br/books/camyle/introducao-a-computacao-livro/livro/livro.chunked/ch03s03.html
+
 ##Proposta
 Criar um conversor de bases numéricas que converta um número em uma base específicada pelo usuário e retornar o número em uma outra base, também especificada pelo mesmo.
 
