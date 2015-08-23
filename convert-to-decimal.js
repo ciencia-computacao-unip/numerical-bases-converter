@@ -8,19 +8,27 @@ function convertToDecimal(string,base){
 
   var numero = 0; //inicia um numero com o valor de 0, para ser subtraido
 
-  for(var x=arrayChar.length-1;x>=0;x--){  //contagem regressiva para ser elevada
-    //arrayChar.length é usado para contar a quantidade de itens no array
-    var charDecimal = convertCharToCode(arrayChar[(arrayChar.length-1)-x]); //usa a função para converter possiveis caracteres para um numero
-    if(charDecimal>=base){
-      console.log("Erro: seu número não está nessa base numérica.");
-      process.exit(1);
+  var distVirgula = string.indexOf(",");
+  var y = (distVirgula<0)?arrayChar.length-1:distVirgula-1;
+
+  for(var x=0;x<arrayChar.length;x++){  //contagem regressiva para ser elevada
+
+    if(arrayChar[x]!==","){
+      //arrayChar.length é usado para contar a quantidade de itens no array
+      var charDecimal = convertCharToCode(arrayChar[x]); //usa a função para converter possiveis caracteres para um numero
+      if(charDecimal>=base){
+        console.log("Erro: seu número não está nessa base numérica.");
+        process.exit(1);
+      }
+      var preNumero = charDecimal * Math.pow(base,y); //cada preNumero é o resultado da formula feita para converter o numero. Math.pow() é usada para elevar um número de forma mais fácil
+      numero += preNumero; //o preNumero é somado ao numero final, dando o resultado.
+      //console.log(charDecimal+"*"+base+"^"+x+" = "+preNumero); //em caso de debug, retire o comentário dessa linha, para saber como a formula funciona
+      y--;
     }
-    var preNumero = charDecimal * Math.pow(base,x); //cada preNumero é o resultado da formula feita para converter o numero. Math.pow() é usada para elevar um número de forma mais fácil
-    numero += preNumero; //o preNumero é somado ao numero final, dando o resultado.
-    //console.log(charDecimal+"*"+base+"^"+x+" = "+preNumero); //em caso de debug, retire o comentário dessa linha, para saber como a formula funciona
+
   }
 
   return numero; //retorna o numero final, convertido na base decimal
 }
 
-console.log(convertToDecimal('10',2));
+console.log(convertToDecimal('1010001,001',2));
