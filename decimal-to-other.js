@@ -3,7 +3,7 @@ var convertCodeToChar = require('./convert-code-to-char.js');
 function decimalToOther(numero,base){
 
   var resultInteiro = "";
-  var restultFracionario = "";
+  var resultFracionario = "";
 
   var inteiro = Math.floor(numero);
   var fracionario = Number("."+(numero+"").split(".")[1]);
@@ -14,9 +14,18 @@ function decimalToOther(numero,base){
     inteiro = (inteiro - q) / base;
   }
 
-  var result = resultInteiro + ((fracionario)?"." + restultFracionario:"");
+  var fracionarioTemp = fracionario;
+  var x=0;
+  while (x<=50 && !isNaN(fracionarioTemp)){
+    var q = fracionarioTemp * base;
+    resultFracionario = resultFracionario + convertCodeToChar(Math.floor(q));
+    fracionarioTemp = Number("."+(q+"").split(".")[1]);
+    x++;
+  }
+
+  var result = resultInteiro + ((fracionario)?"." + resultFracionario:"");
 
   return result;
 }
 
-console.log(decimalToOther(2324,16));
+console.log(decimalToOther(749.97,8));
