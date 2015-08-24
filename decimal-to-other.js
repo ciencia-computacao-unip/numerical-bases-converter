@@ -1,4 +1,4 @@
-var convertCharToCode = require('./convert-code-to-char.js');
+var convertCodeToChar = require('./convert-code-to-char.js');
 
 function decimalToOther(numero,base){
 
@@ -10,7 +10,7 @@ function decimalToOther(numero,base){
 
   while (inteiro != 0) {
     var q = inteiro % base;
-    resultInteiro = convertCharToCode(q) + resultInteiro;
+    resultInteiro = convertCodeToChar(q) + resultInteiro;
     inteiro = (inteiro - q) / base;
   }
 
