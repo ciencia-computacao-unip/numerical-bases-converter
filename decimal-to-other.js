@@ -1,12 +1,18 @@
 var convertCharToCode = require('./convert-code-to-char.js');
 
 function decimalToOther(numero,base){
-  var result = "";
-  while (numero != 0) {
-    var q = numero % base;
-    result = convertCharToCode(q) + result;
-    numero = (numero - q) / base;
+
+  var resultInteiro = "";
+  var inteiro = Math.floor(numero);
+
+  while (inteiro != 0) {
+    var q = inteiro % base;
+    resultInteiro = convertCharToCode(q) + resultInteiro;
+    inteiro = (inteiro - q) / base;
   }
+
+  var result = resultInteiro;
+
   return result;
 }
 
