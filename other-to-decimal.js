@@ -1,8 +1,8 @@
 //para entender o calculo, https://pt.wikipedia.org/wiki/Convers%C3%A3o_de_base_num%C3%A9rica#Convers.C3.A3o_de_bin.C3.A1rio_para_decimal
 
-var convertCharToCode = require('./convertCharToCode.js');
+var convertCharToCode = require('./convert-char-to-code.js');
 
-function convertToDecimal(string,base){
+module.exports = function (string,base){
   string.replace(/^0+(?!\.|$)/, ''); //removendo 0's a esquerda com expressão regular (oh yeah!)
   var arrayChar = string.split(''); //converte a string em um array de caracteres
 
@@ -30,5 +30,3 @@ function convertToDecimal(string,base){
 
   return numero; //retorna o numero final, convertido na base decimal
 }
-
-console.log(convertToDecimal('1010001,001',2));

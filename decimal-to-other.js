@@ -1,6 +1,6 @@
 var convertCodeToChar = require('./convert-code-to-char.js');
 
-function decimalToOther(numero,base){
+module.exports = function (numero,base){
 
   var resultInteiro = "";
   var resultFracionario = "";
@@ -27,5 +27,3 @@ function decimalToOther(numero,base){
 
   return result;
 }
-
-console.log(decimalToOther(749.97,8));
