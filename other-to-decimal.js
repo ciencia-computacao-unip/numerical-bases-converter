@@ -1,6 +1,6 @@
 //para entender o calculo, https://pt.wikipedia.org/wiki/Convers%C3%A3o_de_base_num%C3%A9rica#Convers.C3.A3o_de_bin.C3.A1rio_para_decimal
 
-var convertCharToCode = require('./convertCharToCode.js');
+var convertCharToCode = require('./convert-char-to-code.js');
 
 function otherToDecimal(string,base){
   string.replace(/^0+(?!\.|$)/, ''); //removendo 0's a esquerda com expressão regular (oh yeah!)
